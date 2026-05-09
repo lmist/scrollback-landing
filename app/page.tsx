@@ -81,9 +81,64 @@ const manifestoPoints = [
   },
 ];
 
+// JSON-LD structured data — gives Google enough to render a rich brand card
+// (logo, description, sameAs links) instead of the generic title/snippet pair.
+const SITE_URL = 'https://scrollback.xyz';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}#org`,
+      name: 'scrollback',
+      url: SITE_URL,
+      logo: `${SITE_URL}/icons/scrollback-favicon.svg`,
+      description:
+        'A quiet home for the things you save — bookmarks from Instagram, X, YouTube and your browser, sorted automatically and asked in plain language.',
+      // Add @-handles here as the brand picks them up; sameAs powers Google's
+      // brand sidebar and entity disambiguation.
+      sameAs: [] as string[],
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${SITE_URL}#app`,
+      name: 'scrollback',
+      applicationCategory: 'ProductivityApplication',
+      operatingSystem: 'macOS',
+      description:
+        'scrollback gathers everything you bookmark, save, like and forget — Instagram saves, X bookmarks, YouTube Watch Later, browser saves — into one private, searchable home on your Mac.',
+      url: SITE_URL,
+      image: `${SITE_URL}/opengraph-image`,
+      publisher: { '@id': `${SITE_URL}#org` },
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'USD',
+        // Replace with the real price once finalized; "0" + a freeTrial flag
+        // would also be valid if there's a free tier.
+        price: '0',
+        availability: 'https://schema.org/PreOrder',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}#site`,
+      url: SITE_URL,
+      name: 'scrollback',
+      publisher: { '@id': `${SITE_URL}#org` },
+    },
+  ],
+};
+
 export default function LandingPage() {
   return (
     <div className="landing">
+      {/* Structured data — rendered inline so Google sees it on the first byte. */}
+      <script
+        type="application/ld+json"
+        // Stringify here rather than dangerouslySetInnerHTML+JSON.stringify
+        // gymnastics; same effect, slightly tidier.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Nav */}
       <header className="landing-nav">
         <a href="/" className="landing-brand" aria-label="scrollback home">

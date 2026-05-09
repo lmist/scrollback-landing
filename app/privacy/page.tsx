@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { ScrollbackMark } from '@/components/ScrollbackMark';
 import type { Metadata } from 'next';
 
+// Bare title; the root layout's `%s · scrollback` template wraps it.
 export const metadata: Metadata = {
-  title: 'Privacy — scrollback',
+  title: 'Privacy',
 };
 
 export default function PrivacyPage() {

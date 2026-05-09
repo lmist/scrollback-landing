@@ -19,11 +19,10 @@ const siteUrl =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'https://scrollback.xyz');
 
-// The browser-tab title stays short — just the wordmark, sitting next to the
-// favicon. The longer phrase is reserved for social cards (og:title /
-// twitter:title) where there's room to breathe.
+// Browser-tab title stays short — just the wordmark next to the favicon.
+// Social cards get the hero hook so the unfurl reads like the page does.
 const tabTitle = 'scrollback';
-const socialTitle = 'scrollback — a quiet home for the things you save';
+const socialTitle = 'scrollback — stop losing the internet you already found.';
 const description =
   'scrollback is a calm, private home for everything you bookmark, save, like and forget. Gather your saves from Instagram, X, YouTube and your browser, sorted automatically and asked in plain language.';
 
