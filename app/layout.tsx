@@ -84,7 +84,9 @@ export const metadata: Metadata = {
   // browsers that prefer scalable icons get the crisp version.
   icons: {
     icon: [
-      { url: '/icons/icon-master.svg', type: 'image/svg+xml' },
+      // Transparent, tightly-cropped mark. SVG first so capable browsers get
+      // the scalable version; PNG fallbacks for the rest.
+      { url: '/icons/scrollback-favicon.svg', type: 'image/svg+xml' },
       { url: '/icons/icon-128.png', sizes: '128x128', type: 'image/png' },
       { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],

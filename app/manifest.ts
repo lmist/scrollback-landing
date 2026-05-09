@@ -14,7 +14,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#f6f7fb',
     categories: ['productivity', 'utilities'],
     icons: [
-      { src: '/icons/icon-master.svg', sizes: 'any', type: 'image/svg+xml' },
+      { src: '/icons/scrollback-favicon.svg', sizes: 'any', type: 'image/svg+xml' },
       { src: '/icons/icon-48.png', sizes: '48x48', type: 'image/png' },
       { src: '/icons/icon-128.png', sizes: '128x128', type: 'image/png' },
       {
