@@ -20,14 +20,18 @@ const siteUrl =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : 'https://scrollback.xyz');
 
-const title = 'scrollback — a quiet home for the things you save';
+// The browser-tab title stays short — just the wordmark, sitting next to the
+// favicon. The longer phrase is reserved for social cards (og:title /
+// twitter:title) where there's room to breathe.
+const tabTitle = 'scrollback';
+const socialTitle = 'scrollback — a quiet home for the things you save';
 const description =
   'scrollback is a calm, private home for everything you bookmark, save, like and forget. Gather your saves from Instagram, X, YouTube and your browser, sorted automatically and asked in plain language.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: title,
+    default: tabTitle,
     // Per-page <title> appears as "Page · scrollback".
     template: '%s · scrollback',
   },
@@ -56,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'scrollback',
-    title,
+    title: socialTitle,
     description,
     url: '/',
     locale: 'en_US',
@@ -64,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title,
+    title: socialTitle,
     description,
     creator: '@scrollback',
     // Images emitted by app/twitter-image.tsx.
@@ -85,7 +89,9 @@ export const metadata: Metadata = {
   // browsers that prefer scalable icons get the crisp version.
   icons: {
     icon: [
-      { url: '/icons/icon-master.svg', type: 'image/svg+xml' },
+      // Transparent, tightly-cropped mark. SVG first so capable browsers get
+      // the scalable version; PNG fallbacks for the rest.
+      { url: '/icons/scrollback-favicon.svg', type: 'image/svg+xml' },
       { url: '/icons/icon-128.png', sizes: '128x128', type: 'image/png' },
       { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
