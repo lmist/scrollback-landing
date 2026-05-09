@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ScrollbackMark } from '@/components/ScrollbackMark';
 
 const specRows = [
@@ -217,7 +218,12 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="landing-foot">
         <span>scrollback &middot; made in lisbon &middot; 2026</span>
-        <span>for the people who saved it for later</span>
+        <span>
+          <Link href="/privacy" style={{ textDecoration: 'none' }}>Privacy</Link>
+          {' · '}
+          <Link href="/tos" style={{ textDecoration: 'none' }}>Terms</Link>
+          {' · for the people who saved it for later'}
+        </span>
       </footer>
     </div>
   );

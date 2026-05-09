@@ -353,6 +353,50 @@ a { color: inherit; }
   color: var(--text-dim);
 }
 
+/* ============ Legal pages ============ */
+.legal-page {
+  padding: 64px 56px 80px;
+  max-width: 720px;
+  display: grid;
+  gap: 32px;
+  align-content: start;
+}
+.legal-page .eyebrow { margin-bottom: -16px; }
+.legal-body {
+  display: grid;
+  gap: 20px;
+  font-family: var(--font-departure);
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text);
+}
+.legal-body p { margin: 0; }
+.legal-body h2 {
+  font-family: var(--font-pixel-line);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 8px 0 0;
+  color: var(--text);
+}
+.legal-body ul {
+  margin: -8px 0 0;
+  padding: 0 0 0 1.2em;
+  display: grid;
+  gap: 4px;
+  color: var(--text-dim);
+}
+.legal-body li { padding-left: 4px; }
+.legal-updated {
+  margin-top: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-dim) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
   .landing-hero {
